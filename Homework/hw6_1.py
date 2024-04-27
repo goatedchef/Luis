@@ -23,7 +23,7 @@ def getdata():
     for line in file:
         line = line.strip()
         year,name = line.split(",")
-        year = int(year)
+        year = float(year)
         yearList.append(year)
         Names.append(name)
         return yearList, Names
@@ -34,6 +34,7 @@ def getYearLinear(yearList, year):
     positionL = 0
     compL = 0
     for i in range (len(yearList)):
+        compL += 1
         if yearList[i] == year:
             compL += 1
             positionL = i
@@ -67,7 +68,7 @@ def getYearbinary(YearList, year):
 
 
 def printResults(positionL, positionB, year):
-
+    print(positionB, positionL, year)
 
 def main():
     yearList = getdata()
@@ -76,3 +77,4 @@ def main():
     positionB = getYearbinary(yearList, year)
     printResults(positionL, positionB, year)
     
+main()
